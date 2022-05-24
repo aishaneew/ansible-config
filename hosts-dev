@@ -1,0 +1,11 @@
+# hosts-dev
+
+[webservers]
+app1 ansible_host=xxxxxxxx
+app2 ansible_host=xxxxxxxx
+
+[loadbalancers]
+lb1 ansible_host=xxxxxxxxx
+
+[local]
+control ansible_connection=local

@@ -1,0 +1,30 @@
+# remove services
+
+---
+- hosts: webservers:loadbalancers
+  tasks:
+    - name: "Stop Nginx Services"
+      service:
+        name: nginx
+        state: stopped
+
+    - name: "Uninstall NginX"
+      apt:
+        name: nginx
+        state: absent
+
+
+    - name: "Uninstall nodejs"
+      apt:
+        name: nodejs
+        state: absent
+
+    - name: run apt-get update for all the services
+      apt:
+        update_cache: yes
+        
+    - name: updating apt package
+      apt: name=* state=latest
+
+
+    
